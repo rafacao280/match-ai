@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>面试准备 — MatchAI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:14px;-webkit-font-smoothing:antialiased}
+body{background:#FAFAFA;color:#111111;font-family:'Inter','Noto Sans SC',system-ui,sans-serif;padding:32px}
+
+.page{max-width:780px;margin:0 auto}
+
+/* Accordion */
+.accordion-list{display:flex;flex-direction:column;gap:10px}
+.accordion{background:#FFFFFF;border:1px solid #E5E7EB;border-radius:8px;overflow:hidden}
+.accordion-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:18px;cursor:pointer}
+.accordion-header:hover{background:#F9FAFB}
+.accordion-q{font-size:15px;font-weight:700;line-height:1.6;flex:1;color:#111111}
+.accordion-chevron{flex-shrink:0;margin-top:4px;color:#9CA3AF}
+.accordion-content{padding:16px 18px 18px;border-top:1px solid #E5E7EB}
+.accordion-answer-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#5B6EF7;margin-bottom:10px}
+.accordion-answer-first{font-size:14px;font-weight:700;line-height:1.7;color:#5B6EF7;margin-bottom:8px}
+.accordion-answer-rest{font-size:13px;line-height:1.8;color:#374151}
+
+/* All open for preview */
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="accordion-list">
+
+    <div class="accordion">
+      <div class="accordion-header">
+        <span class="accordion-q">Q1：你的实习经验只有 6 个月，如何证明你能胜任这个需要 2 年经验的岗位？</span>
+        <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9" transform="rotate(180 12 12)"/></svg>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-answer-label">建议回答角度</div>
+        <p class="accordion-answer-first">用「密度」对抗「年限」：6 个月完成了别人 2 年才接触到的完整数据闭环。</p>
+        <p class="accordion-answer-rest">具体说明：在实习期间独立负责了从数据采集、清洗、建模到洞察输出的全流程，而非只做执行层工作。列举 1-2 个有业务影响力的项目（如推动留存率提升 2.3pct），强调「质量密度」而非「时间长度」，并表达快速上手新环境的意愿与过往学习速度。</p>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">
+        <span class="accordion-q">Q2：请描述一次你用数据影响了业务决策的经历。</span>
+        <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9" transform="rotate(180 12 12)"/></svg>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-answer-label">建议回答角度</div>
+        <p class="accordion-answer-first">按「背景 → 分析过程 → 洞察结论 → 业务影响」四段式结构回答，避免只说「我分析了数据」。</p>
+        <p class="accordion-answer-rest">推荐使用 A/B 测试或留存率分析的案例，重点说明：你是如何发现问题的（指标异动）→ 如何拆解归因 → 给出了什么可落地建议 → 最终业务方做了什么决策 → 结果是什么（量化）。务必提前背熟数字，面试官会追问。</p>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">
+        <span class="accordion-q">Q3：如果业务方不认可你的数据结论，你会怎么处理？</span>
+        <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9" transform="rotate(180 12 12)"/></svg>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-answer-label">建议回答角度</div>
+        <p class="accordion-answer-first">先假设对方是对的，倒回去检查数据口径和业务假设，而不是急于证明自己正确。</p>
+        <p class="accordion-answer-rest">分三步回答：① 主动沟通，理解业务方的判断依据和直觉经验来源；② 复盘分析逻辑，检查数据口径、时间窗口、归因方式是否有遗漏；③ 如果结论仍然成立，用可视化或对比实验等更直观的方式重新呈现。展示「以业务目标为导向」而非「捍卫数据正确性」的思维方式。</p>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">
+        <span class="accordion-q">Q4：你了解哪些 A/B 测试中的常见陷阱？如何避免？</span>
+        <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9" transform="rotate(180 12 12)"/></svg>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-answer-label">建议回答角度</div>
+        <p class="accordion-answer-first">至少说出 3 个有深度的陷阱，而不仅仅是「样本量不够」这类表面答案。</p>
+        <p class="accordion-answer-rest">推荐提到：① p-hacking / 过早停止实验（提前看结果并停止）；② 辛普森悖论（分层后结论反转）；③ 网络效应导致的实验组污染（社交场景下对照组被影响）；④ 新奇效应（用户短期行为失真）。每个陷阱配一句如何发现和规避，展示真正的实操经验而非只是背题。</p>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">
+        <span class="accordion-q">Q5：如何设计一个指标体系来衡量某功能的健康度？</span>
+        <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9" transform="rotate(180 12 12)"/></svg>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-answer-label">建议回答角度</div>
+        <p class="accordion-answer-first">用「北极星指标 → 辅助指标 → 护栏指标」三层结构回答，展示系统化思维。</p>
+        <p class="accordion-answer-rest">以搜索功能为例：北极星指标（搜索成功率 / 结果点击率）→ 辅助指标（平均搜索次数、零结果率、搜索响应时长）→ 护栏指标（不能为了提升搜索量而牺牲精准度）。最后说明如何用数据看板把这些指标组织在一起，定期 review 与业务对齐。</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

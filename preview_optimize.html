@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>优化建议 — MatchAI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:14px;-webkit-font-smoothing:antialiased}
+body{background:#FAFAFA;color:#111111;font-family:'Inter','Noto Sans SC',system-ui,sans-serif;padding:32px}
+
+.page{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+
+/* Strategy banner */
+.strategy-banner{background:#F0F2FF;border:1px solid #C7CCFA;border-radius:8px;padding:18px 20px}
+.strategy-banner .label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#5B6EF7;margin-bottom:8px}
+.strategy-text{font-size:15px;line-height:1.8;color:#374151}
+
+/* Rewrite cards */
+.rewrite-list{display:flex;flex-direction:column;gap:16px}
+.rewrite-card{background:#FFFFFF;border:1px solid #E5E7EB;border-radius:8px;overflow:hidden}
+.rewrite-header{padding:14px 18px;border-bottom:1px solid #E5E7EB;font-size:15px;font-weight:700;color:#111111;line-height:1.5}
+.rewrite-cols{display:grid;grid-template-columns:1fr 1fr}
+.rewrite-col{padding:16px 18px}
+.rewrite-col.before-col{background:#FCEBEB}
+.rewrite-col.after-col{background:#EAF3DE}
+.rewrite-col+.rewrite-col{border-left:1px solid #E5E7EB}
+.rewrite-col-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px}
+.rewrite-col-label.before{color:#A32D2D}
+.rewrite-col-label.after{color:#3B6D11}
+.rewrite-before{font-size:12px;line-height:1.7;color:#6B7280;text-decoration:line-through;text-decoration-color:#F5A8A8}
+.rewrite-after-first{font-size:13px;font-weight:700;line-height:1.6;color:#111111;margin-bottom:6px}
+.rewrite-after-rest{font-size:13px;line-height:1.7;color:#374151}
+.rewrite-logic{padding:10px 18px;border-top:1px solid #E5E7EB;font-size:12px;color:#6B7280;line-height:1.7;font-style:italic;background:#F9FAFB}
+
+/* No-apply warning */
+.no-apply-warning{background:#FFFBEB;border:1px solid #F5D87A;border-radius:8px;padding:16px 18px;font-size:14px;line-height:1.8;color:#374151}
+.no-apply-warning .label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#BA7517;margin-bottom:6px}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Strategy banner -->
+  <div class="strategy-banner">
+    <div class="label">总体策略</div>
+    <p class="strategy-text">重点弥补「经验年限」的硬性差距，将 6 个月实习包装成独立交付的项目叙事；同时将 A/B 测试与汇报经历量化补全，集中展示「数据驱动→业务决策」的完整闭环能力。</p>
+  </div>
+
+  <!-- Rewrite cards -->
+  <div class="rewrite-list">
+
+    <div class="rewrite-card">
+      <div class="rewrite-header">将「参与增长组项目」改写为「独立负责 DAU 提升专项分析」</div>
+      <div class="rewrite-cols">
+        <div class="rewrite-col before-col">
+          <div class="rewrite-col-label before">改写前</div>
+          <p class="rewrite-before">参与增长组 DAU 提升相关数据支持工作，协助完成分析报告。</p>
+        </div>
+        <div class="rewrite-col after-col">
+          <div class="rewrite-col-label after">改写后</div>
+          <p class="rewrite-after-first">独立负责 DAU 提升专项分析，输出 3 份可落地洞察报告，直接支撑运营策略调整。</p>
+          <p class="rewrite-after-rest">通过用户分层漏斗分析定位次日留存流失节点，推动产品优化后 D1 留存率提升 2.3pct。</p>
+        </div>
+      </div>
+      <div class="rewrite-logic">逻辑：将「参与」升级为「负责」，加入可量化的交付成果与业务影响，符合 JD 中对独立产出的要求。</div>
+    </div>
+
+    <div class="rewrite-card">
+      <div class="rewrite-header">将「了解 A/B 测试」改写为「主导 A/B 测试全流程设计与分析」</div>
+      <div class="rewrite-cols">
+        <div class="rewrite-col before-col">
+          <div class="rewrite-col-label before">改写前</div>
+          <p class="rewrite-before">了解 A/B 测试原理，参与过一次小型实验的数据分析。</p>
+        </div>
+        <div class="rewrite-col after-col">
+          <div class="rewrite-col-label after">改写后</div>
+          <p class="rewrite-after-first">主导推送策略 A/B 测试全流程，包含假设设计、样本量计算、显著性检验及结论输出。</p>
+          <p class="rewrite-after-rest">实验组点击率相比对照组提升 18%，结论被产品经理直接采纳并排期上线。</p>
+        </div>
+      </div>
+      <div class="rewrite-logic">逻辑：从「了解」升级为「主导」，补充 A/B 测试各环节的具体动作及最终业务采纳结果。</div>
+    </div>
+
+    <div class="rewrite-card">
+      <div class="rewrite-header">将「撰写内部周报」改写为「定期向业务负责人汇报数据洞察」</div>
+      <div class="rewrite-cols">
+        <div class="rewrite-col before-col">
+          <div class="rewrite-col-label before">改写前</div>
+          <p class="rewrite-before">负责撰写数据组内部周报，整理关键指标变化情况。</p>
+        </div>
+        <div class="rewrite-col after-col">
+          <div class="rewrite-col-label after">改写后</div>
+          <p class="rewrite-after-first">每周向业务负责人汇报核心指标波动及异因归因，形成标准化 Dashboard 模板被团队沿用至今。</p>
+          <p class="rewrite-after-rest">通过指标拆解识别出活跃度下滑的关键驱动因子，支撑运营团队在 3 天内完成策略调整。</p>
+        </div>
+      </div>
+      <div class="rewrite-logic">逻辑：突出「向业务方汇报」这一关键动作，补充交付物的影响力和沿用价值。</div>
+    </div>
+
+  </div>
+
+  <!-- No-apply warning -->
+  <div class="no-apply-warning">
+    <div class="label">谨慎投递信号</div>
+    JD 明确要求 2 年以上工作经验，而候选人为应届生。部分公司 HR 系统会在初筛阶段自动过滤应届简历。建议优先投递同等规模但未设经验硬门槛的岗位，或通过内推渠道绕过系统筛选。
+  </div>
+
+</div>
+</body>
+</html>

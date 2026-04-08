@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>概览 — MatchAI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:14px;-webkit-font-smoothing:antialiased}
+body{background:#FAFAFA;color:#111111;font-family:'Inter','Noto Sans SC',system-ui,sans-serif;padding:32px}
+
+.page{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+
+/* Hero */
+.ov-hero{background:#FFFFFF;border:1px solid #E5E7EB;border-radius:12px;padding:28px 28px 24px;display:flex;align-items:flex-start;gap:28px;position:relative}
+.ov-ring-wrap{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:8px}
+.ov-ring-label{font-size:12px;font-weight:500;color:#6B7280;letter-spacing:.02em}
+.ov-hero-meta{flex:1;padding-top:2px}
+.ov-hero-summary{font-size:17px;font-weight:700;line-height:1.5;color:#111111;margin-bottom:8px}
+.ov-hero-desc{font-size:13px;line-height:1.8;color:#6B7280}
+.ov-invest-badge{position:absolute;top:20px;right:20px;font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid}
+.ov-invest-badge.recommend{color:#3B6D11;background:#EAF3DE;border-color:#B7D89A}
+.ov-invest-badge.caution{color:#BA7517;background:#FEF3C7;border-color:#F5D87A}
+.ov-invest-badge.reject{color:#A32D2D;background:#FCEBEB;border-color:#F5A8A8}
+
+/* Stat blocks */
+.stat-blocks{display:flex;gap:10px}
+.stat-block{flex:1;padding:16px;border-radius:8px;display:flex;flex-direction:column;gap:6px;border:1px solid transparent}
+.stat-block.strong{background:#EAF3DE;border-color:#C8E2B0}
+.stat-block.partial{background:#FEF3C7;border-color:#F5D87A}
+.stat-block.weak{background:#FCEBEB;border-color:#F5A8A8}
+.stat-num{font-size:24px;font-weight:700;line-height:1}
+.stat-block.strong .stat-num{color:#3B6D11}
+.stat-block.partial .stat-num{color:#BA7517}
+.stat-block.weak .stat-num{color:#A32D2D}
+.stat-label{font-size:12px}
+.stat-block.strong .stat-label{color:#3B6D11}
+.stat-block.partial .stat-label{color:#BA7517}
+.stat-block.weak .stat-label{color:#A32D2D}
+
+/* Section label */
+.ov-section-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:#9CA3AF;margin-bottom:12px}
+
+/* Compare table */
+.ov-compare-table{width:100%;border-collapse:collapse;margin-bottom:28px}
+.ov-compare-table thead th{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#9CA3AF;padding:8px 14px;text-align:left;border-bottom:1px solid #E5E7EB}
+.ov-compare-table tbody tr{border-bottom:1px solid #F3F4F6}
+.ov-compare-table tbody tr:hover{background:#F9FAFB}
+.ov-bar-cell{width:4px;padding:0}
+.ov-bar-cell-inner{width:3px;min-height:36px;height:100%;border-radius:2px}
+.ov-bar-cell-inner.strong{background:#639922}
+.ov-bar-cell-inner.partial{background:#EF9F27}
+.ov-bar-cell-inner.pending{background:#EF9F27}
+.ov-bar-cell-inner.missing{background:#E24B4A}
+.ov-compare-table td{padding:14px;line-height:1.7;vertical-align:top}
+.ov-td-jd{font-size:14px;color:#111111;width:48%}
+.ov-td-me{font-size:13px;color:#374151;width:48%}
+
+/* Bonus cards */
+.ov-bonus-grid{display:flex;flex-wrap:wrap;gap:10px}
+.ov-bonus-card{background:#FFFFFF;border:1px solid #E5E7EB;border-radius:8px;padding:14px 16px;flex:0 1 calc(50% - 5px);min-width:140px}
+.ov-bonus-name{font-size:13px;font-weight:600;color:#111111;margin-bottom:5px}
+.ov-bonus-why{font-size:12px;color:#6B7280;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Hero -->
+  <div class="ov-hero">
+    <span class="ov-invest-badge caution">谨慎投递</span>
+    <div class="ov-ring-wrap">
+      <svg width="80" height="80" viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="36.5" fill="none" stroke="#E5E7EB" stroke-width="7"/>
+        <circle cx="40" cy="40" r="36.5" fill="none" stroke="#EF9F27" stroke-width="7"
+          stroke-linecap="round"
+          stroke-dasharray="166.50 229.34"
+          stroke-dashoffset="57.34"
+          transform="rotate(-90 40 40)"/>
+        <text x="40" y="40" text-anchor="middle" dominant-baseline="middle"
+          font-family="Inter,system-ui,sans-serif" font-size="17" font-weight="700" fill="#EF9F27">73</text>
+      </svg>
+      <span class="ov-ring-label">良好匹配</span>
+    </div>
+    <div class="ov-hero-meta">
+      <p class="ov-hero-summary">核心技能契合度高，但商业分析经验尚显不足</p>
+      <p class="ov-hero-desc">候选人具备扎实的 SQL 与 Python 数据处理能力，项目经历与岗位核心职责高度吻合。主要差距在于缺乏完整的商业分析闭环经验及跨部门沟通案例，需在面试中重点补充。</p>
+    </div>
+  </div>
+
+  <!-- Stat blocks -->
+  <div class="stat-blocks">
+    <div class="stat-block strong"><span class="stat-num">5</span><span class="stat-label">强匹配</span></div>
+    <div class="stat-block partial"><span class="stat-num">3</span><span class="stat-label">部分匹配</span></div>
+    <div class="stat-block weak"><span class="stat-num">2</span><span class="stat-label">待补充 / 缺失</span></div>
+  </div>
+
+  <!-- Compare table -->
+  <div>
+    <p class="ov-section-label">JD 核心要求 vs 我的对应能力</p>
+    <table class="ov-compare-table">
+      <thead>
+        <tr>
+          <th style="width:4px;padding:0"></th>
+          <th>JD 核心要求</th>
+          <th>我的对应能力</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ov-bar-cell"><div class="ov-bar-cell-inner strong"></div></td>
+          <td class="ov-td-jd">熟练使用 SQL 进行数据提取与分析</td>
+          <td class="ov-td-me">在实习中独立完成 200+ 张报表，使用 Hive SQL 处理亿级数据</td>
+        </tr>
+        <tr>
+          <td class="ov-bar-cell"><div class="ov-bar-cell-inner strong"></div></td>
+          <td class="ov-td-jd">Python 数据处理与可视化（Pandas / Matplotlib）</td>
+          <td class="ov-td-me">课程项目及实习均有使用，完成过用户行为漏斗分析</td>
+        </tr>
+        <tr>
+          <td class="ov-bar-cell"><div class="ov-bar-cell-inner strong"></div></td>
+          <td class="ov-td-jd">本科及以上学历，统计 / 计算机相关专业</td>
+          <td class="ov-td-me">985 高校统计学本科，绩点 3.8/4.0</td>
+        </tr>
+        <tr>
+          <td class="ov-bar-cell"><div class="ov-bar-cell-inner partial"></div></td>
+          <td class="ov-td-jd">具备 A/B 测试设计与结果分析能力</td>
+          <td class="ov-td-me">了解 A/B 测试原理，有过一次实操但规模较小</td>
+        </tr>
+        <tr>
+          <td class="ov-bar-cell"><div class="ov-bar-cell-inner partial"></div></td>
+          <td class="ov-td-jd">能独立产出数据洞察报告并向业务方汇报</td>
+          <td class="ov-td-me">有过内部周报撰写经验，但未正式向管理层汇报</td>
+        </tr>
+        <tr>
+          <td class="ov-bar-cell"><div class="ov-bar-cell-inner missing"></div></td>
+          <td class="ov-td-jd">2 年以上互联网数据分析工作经验</td>
+          <td class="ov-td-me">应届生，仅有 6 个月实习经验</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Bonus cards -->
+  <div>
+    <p class="ov-section-label">隐性加分项</p>
+    <div class="ov-bonus-grid">
+      <div class="ov-bonus-card">
+        <p class="ov-bonus-name">竞赛经历</p>
+        <p class="ov-bonus-why">参加过全国数学建模竞赛并获奖，证明具备建模思维与抗压能力</p>
+      </div>
+      <div class="ov-bonus-card">
+        <p class="ov-bonus-name">电商行业背景</p>
+        <p class="ov-bonus-why">实习公司为电商平台，与岗位所在业务方向高度吻合</p>
+      </div>
+      <div class="ov-bonus-card">
+        <p class="ov-bonus-name">双语能力</p>
+        <p class="ov-bonus-why">CET-6 高分 + 英文报告撰写经历，对接海外数据源时有优势</p>
+      </div>
+      <div class="ov-bonus-card">
+        <p class="ov-bonus-name">自驱学习意愿</p>
+        <p class="ov-bonus-why">自学 Tableau 并完成独立项目，体现主动学习能力</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
