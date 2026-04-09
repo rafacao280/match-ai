@@ -383,6 +383,34 @@ main{display:flex;padding-top:var(--nav-h);height:100vh;overflow:hidden}
 .no-apply-warning{background:#FFFBEB;border:1px solid #F5D87A;border-radius:var(--r);padding:15px 18px;font-size:14px;line-height:1.8;color:var(--body)}
 .no-apply-warning .label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#BA7517;margin-bottom:5px}
 
+/* ── Pitfall tips ─────────────────────────────────────────────────────────── */
+.pitfall-section{margin-top:4px}
+.pitfall-heading{
+  display:flex;align-items:center;gap:7px;
+  font-size:13px;font-weight:700;color:#92400E;
+  margin-bottom:12px;
+}
+.pitfall-list{display:flex;flex-direction:column;gap:9px}
+.pitfall-card{
+  background:#FFFFFF;
+  border:1px solid #FED7AA;
+  border-left:3px solid #F97316;
+  border-radius:var(--r);
+  padding:13px 15px;
+}
+.pitfall-found{
+  font-size:13px;color:#9CA3AF;
+  text-decoration:line-through;text-decoration-color:#F97316;
+  margin-bottom:5px;line-height:1.6;font-style:italic;
+}
+.pitfall-reason{font-size:13px;color:var(--body);line-height:1.7;margin-bottom:8px}
+.pitfall-action{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:11px;font-weight:600;
+  padding:3px 10px;border-radius:20px;
+  background:#FFF7ED;border:1px solid #FED7AA;color:#C2410C;
+}
+
 /* ── Interview accordion ─────────────────────────────────────────────────── */
 .accordion-list{display:flex;flex-direction:column;gap:9px}
 .accordion{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
@@ -1049,6 +1077,7 @@ function toggleJdRow(i) {
 function renderOptimize(opt) {
   const strategy = opt['总体策略']||'';
   const rewrites = opt['简历改写建议']||[];
+  const pitfalls = opt['求职避坑提示']||[];
   const noApply  = opt['不建议投递信号']||'';
 
   const stratHtml = strategy ? `
@@ -1061,9 +1090,13 @@ function renderOptimize(opt) {
   <div class="rewrite-list">
     ${rewrites.map(r => {
       const [af, ar] = splitFirst(r['优化写法']||'');
+      const basis = r['简历原文依据']||'';
       return `
       <div class="rewrite-card">
         <div class="rewrite-header">${esc(rewriteTitle(r))}</div>
+        ${basis ? `<div style="padding:8px 18px;border-bottom:1px solid var(--border);background:#FAFAF8;font-size:11px;color:var(--muted);line-height:1.6">
+          <span style="font-weight:600;color:var(--subtle);text-transform:uppercase;letter-spacing:.05em;margin-right:6px">原文依据</span>${esc(basis)}
+        </div>` : ''}
         <div class="rewrite-cols">
           <div class="rewrite-col before-col">
             <div class="rewrite-col-label before">改写前</div>
@@ -1080,13 +1113,37 @@ function renderOptimize(opt) {
     }).join('')}
   </div>` : '';
 
+  const pitfallHtml = pitfalls.length ? `
+  <div class="pitfall-section">
+    <div class="pitfall-heading">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.2">
+        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      避坑提示
+    </div>
+    <div class="pitfall-list">
+      ${pitfalls.map(p => `
+      <div class="pitfall-card">
+        <p class="pitfall-found">「${esc(p['发现内容']||'')}」</p>
+        <p class="pitfall-reason">${esc(p['问题说明']||'')}</p>
+        <span class="pitfall-action">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          ${esc(p['建议操作']||'建议修改')}
+        </span>
+      </div>`).join('')}
+    </div>
+  </div>` : '';
+
   const noApplyHtml = noApply ? `
   <div class="no-apply-warning">
     <div class="label">不建议投递信号</div>
     ${esc(noApply)}
   </div>` : '';
 
-  document.getElementById('tab-optimize').innerHTML = stratHtml + rewriteHtml + noApplyHtml;
+  document.getElementById('tab-optimize').innerHTML = stratHtml + rewriteHtml + pitfallHtml + noApplyHtml;
 }
 
 /* ── Render: Interview ───────────────────────────────────────────────────── */
@@ -1291,8 +1348,17 @@ function buildPrintArea(d) {
     <p style="font-size:14px;font-weight:600;line-height:1.8;margin-bottom:6px;color:#111">Q${i+1}：${esc(q['可能被问到']||'')}</p>
     <p style="font-size:13px;line-height:1.8;color:#615d59">建议回答角度：${esc(q['建议回答角度']||'')}</p>
   </div>`).join('')}
+  ${(opt['求职避坑提示']||[]).length?`
+  <p class="print-h1">五、求职避坑提示</p>
+  ${(opt['求职避坑提示']||[]).map(p=>`
+  <div style="background:#FFF;border:1px solid #FED7AA;border-left:3px solid #F97316;border-radius:6px;padding:12px 14px;margin-bottom:9px">
+    <p style="font-size:13px;color:#9CA3AF;text-decoration:line-through;margin-bottom:5px">「${esc(p['发现内容']||'')}」</p>
+    <p style="font-size:13px;color:#374151;line-height:1.7;margin-bottom:7px">${esc(p['问题说明']||'')}</p>
+    <span style="font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#FFF7ED;border:1px solid #FED7AA;color:#C2410C">${esc(p['建议操作']||'建议修改')}</span>
+  </div>`).join('')}`:''}
+
   ${opt['不建议投递信号']?`
-  <p class="print-h1">五、投递建议</p>
+  <p class="print-h1">六、投递建议</p>
   <div style="background:#FFFBEB;border:1px solid #F5D87A;border-radius:6px;padding:13px;font-size:14px;line-height:1.8;color:#374151">
     <p style="font-size:11px;color:#BA7517;text-transform:uppercase;letter-spacing:.04em;margin-bottom:7px">不建议投递信号</p>
     ${esc(opt['不建议投递信号'])}
